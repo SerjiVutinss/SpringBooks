@@ -8,9 +8,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Show Loans</title>
+<link href="css/tables.css" rel="stylesheet">
 </head>
 <body>
 
+	<h1>Loans</h1>
 	<table>
 		<tr>
 			<th>ID</th>
