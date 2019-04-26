@@ -46,17 +46,26 @@ public class LoanController {
 		return "newLoan";
 	}
 
-	// TODO: try to get this method working instead of using the AddLoanModel method
-//	@RequestMapping(value = "/newLoan", method=RequestMethod.POST)
+//	@RequestMapping(value = "/newLoan", method = RequestMethod.GET)
+//	public String addLoan(Model m) {
+//		Loan loan = new Loan();
+//		m.addAttribute("loan", loan);
+//		return "newLoan";
+//	}
+
+////	 TODO: try to get this method working instead of using the AddLoanModel method
+//	@RequestMapping(value = "/newLoan", method = RequestMethod.POST)
 //	public String addLoan(@Valid @ModelAttribute("loan") Loan loan, BindingResult result) {
-//		
-//		if(result.hasErrors()) {
+//
+//		if (result.hasErrors()) {
 //			return "newLoan";
 //		}
-//		
+//		// set the due date using the static helper method
+//		loan.setDueDate(DateUtils.addToCurrentDate(c.getLoanPeriod()));
+//
 //		// add to repo
-//		cs.add(loan);
-//		
+//		loanService.add(loan);
+//
 //		return "redirect:showLoans";
 //	}
 
