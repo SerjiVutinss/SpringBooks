@@ -13,7 +13,9 @@
 
 	<table>
 		<tr>
-			<th>Customer</th>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Loan Period</th>
 		</tr>
 		<tr>
 			<c:forEach items="${customers}" var="customer">

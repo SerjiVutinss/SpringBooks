@@ -13,11 +13,13 @@
 
 	<table>
 		<tr>
-			<th>LoanID</th>
+			<th>ID</th>
+			<th>Customer</th>
+			<th>Book</th>
+			<th>Due Date</th>
 		</tr>
 		<tr>
 			<c:forEach items="${loans}" var="l">
-
 				<tr>
 					<td>${l.lid}</td>
 					<td>${l.cust.cName}</td>
