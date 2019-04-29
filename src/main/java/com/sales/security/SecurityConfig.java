@@ -13,7 +13,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(HttpSecurity httpSecurity) throws Exception {
 //		https://www.baeldung.com/spring-security-logout
-		httpSecurity.authorizeRequests().antMatchers("/showBooks", "/url2", "/urln").hasRole("USER").and().formLogin().and().logout();
+		httpSecurity.authorizeRequests().antMatchers("/showBooks", "/showCustomers", "/showLoans", "/addBook",
+				"/addCustomer", "/newLoan", "/deleteLoan").hasRole("USER").and().formLogin().and().logout();
 	}
 
 	@Autowired
