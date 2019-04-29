@@ -15,7 +15,7 @@
 	<h1>List of Customers</h1>
 
 	<c:forEach items="${customers}" var="customer">
-		<h2>${customer.cId}${customer.cName}</h2>
+		<h2>${customer.cId} - ${customer.cName}</h2>
 		<p>Loan Period = ${customer.loanPeriod} days</p>
 		<h3>${customer.cName}'sLoans</h3>
 

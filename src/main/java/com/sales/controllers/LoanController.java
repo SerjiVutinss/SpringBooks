@@ -1,6 +1,9 @@
 package com.sales.controllers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -31,6 +34,7 @@ public class LoanController {
 	@Autowired
 	BookService bookService;
 
+	//// show loans
 	@RequestMapping(value = "/showLoans", method = RequestMethod.GET)
 	public String showLoans(Model m) {
 
@@ -38,11 +42,39 @@ public class LoanController {
 		m.addAttribute("loans", loans);
 		return "showLoans";
 	}
+	//// end show loans
 
+	//// new loan
 	@RequestMapping(value = "/newLoan", method = RequestMethod.GET)
 	public String addLoan(Model m) {
+
+		//// Customers dropdown
+		// get all customers from db
+		ArrayList<Customer> customers = (ArrayList<Customer>) customerService.get();
+		// add customers to a map
+		Map<Long, String> customersMap = new HashMap<Long, String>();
+		for (Customer c : customers) {
+			customersMap.put(c.getcId(), c.getcName());
+		}
+		m.addAttribute("customerList", customersMap);
+		//// End Customer Dropdown
+
+		//// Books dropdown
+		// get all books from db
+		ArrayList<Book> books = (ArrayList<Book>) bookService.get();
+		// add books to a map
+		Map<Long, String> booksMap = new HashMap<Long, String>();
+		for (Book b : books) {
+			booksMap.put(b.getBid(), b.getTitle());
+		}
+		// add map to model
+		m.addAttribute("bookList", booksMap);
+		//// End Books Dropdown
+
+		// create new custom AddLoanModel and add to model
 		AddLoanModel lm = new AddLoanModel();
 		m.addAttribute("loanModel", lm);
+		
 		return "newLoan";
 	}
 
@@ -74,7 +106,9 @@ public class LoanController {
 
 		return "redirect:showLoans";
 	}
+	//// end new loan
 
+	//// delete loan
 	@RequestMapping(value = "/deleteLoan", method = RequestMethod.GET)
 	public String deleteLoan(Model m) {
 		Loan l = new Loan();
@@ -95,7 +129,10 @@ public class LoanController {
 
 		return "redirect:showLoans";
 	}
+	//// end delete loan
 
+//// Testing creating new loan using 'Loan' model
+////	
 //	@RequestMapping(value = "/newLoan", method = RequestMethod.GET)
 //	public String addLoan(Model m) {
 //		Loan loan = new Loan();
@@ -121,5 +158,7 @@ public class LoanController {
 //
 //		return "redirect:showLoans";
 //	}
+////
+//// End testing create loan using Loan model
 
 }

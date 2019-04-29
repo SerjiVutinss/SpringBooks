@@ -9,9 +9,16 @@
 <title>New Loan</title>
 </head>
 <body>
-
+	<h1>New Loan</h1>
 	<form:form modelAttribute="loanModel">
-		<table>
+
+		<form:select path="customerId" items="${customerList}" />
+		<form:select path="bookId" items="${bookList}" />
+
+		<input type="submit" value="Add" />
+
+		<%--
+		 <table>
 			<tr>
 				<td>CustID:</td>
 				<td><form:input path="customerId"></form:input></td>
@@ -29,6 +36,8 @@
 				<td colspan="2"><input type="submit" value="Add" /></td>
 			</tr>
 		</table>
+		--%>
+
 	</form:form>
 
 </body>
