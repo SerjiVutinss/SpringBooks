@@ -40,11 +40,13 @@ public class BookController {
 	@RequestMapping(value = "/addBook", method = RequestMethod.POST)
 	public String addbook(@Valid @ModelAttribute("book") Book book, BindingResult result) {
 
+
 		if (result.hasErrors()) {
 			return "addBook";
 		}
 
 		// add to repo
+		bookService.add(book);
 
 		return "redirect:showBooks";
 	}
