@@ -13,25 +13,24 @@
 <body>
 
 	<h1>Loans</h1>
-	<table>
+	<table class="data-table">
 		<tr>
 			<th>ID</th>
 			<th>Customer</th>
 			<th>Book</th>
 			<th>Due Date</th>
 		</tr>
-		<tr>
-			<c:forEach items="${loans}" var="l">
-				<tr>
-					<td>${l.lid}</td>
-					<td>${l.cust.cName}</td>
-					<td>${l.book.title}</td>
-					<td>${l.dueDate}</td>
-				</tr>
-			</c:forEach>
-		</tr>
-
+		<c:forEach items="${loans}" var="l">
+			<tr>
+				<td>${l.lid}</td>
+				<td>${l.cust.cName}</td>
+				<td>${l.book.title}</td>
+				<td>${l.dueDate}</td>
+			</tr>
+		</c:forEach>
 	</table>
+
+	<jsp:include page="footer-menu.jsp" />
 
 </body>
 </html>

@@ -14,12 +14,12 @@
 
 	<h1>List of Customers</h1>
 
-	<c:forEach items="${customers}" var="customer">
-		<h2>${customer.cId} - ${customer.cName}</h2>
-		<p>Loan Period = ${customer.loanPeriod} days</p>
-		<h3>${customer.cName}'sLoans</h3>
+	<c:forEach items="${customers}" var="c">
+		<h2>${c.cId} - ${c.cName}</h2>
+		<p>Loan Period = ${c.loanPeriod} days</p>
+		<h3>${c.cName}'sLoans</h3>
 
-		<table>
+		<table class="data-table">
 			<tr>
 				<th>Loan ID</th>
 				<th>Book ID</th>
@@ -28,20 +28,21 @@
 				<th>Due Date</th>
 			</tr>
 
-			<c:forEach items="${customer.loans}" var="loan">
+			<c:forEach items="${c.loans}" var="l">
 				<tr>
-					<td>${loan.lid}</td>
-					<td>${loan.book.bid}</td>
-					<td>${loan.book.title}</td>
-					<td>${loan.book.author}</td>
-					<td>${loan.dueDate}</td>
+					<td>${l.lid}</td>
+					<td>${l.book.bid}</td>
+					<td>${l.book.title}</td>
+					<td>${l.book.author}</td>
+					<td>${l.dueDate}</td>
 				</tr>
 			</c:forEach>
+
 		</table>
 
 	</c:forEach>
 
-	<a href="<c:url value="/logout" />">Logout</a>
+	<jsp:include page="footer-menu.jsp" />
 
 </body>
 </html>

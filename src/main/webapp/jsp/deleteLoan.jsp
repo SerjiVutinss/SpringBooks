@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Delete Loan</title>
+<link href="css/tables.css" rel="stylesheet">
 </head>
 <body>
 
@@ -25,15 +26,14 @@
 				<td><form:errors path="lid"></form:errors></td>
 			</tr>
 			<tr>
-				<td colspan="2"></td>
-			</tr>
-
-			<tr>
-				<td colspan="2"><input type="submit" value="Delete" /></td>
+				<td></td>
+				<td><input type="submit" value="Delete" /></td>
 			</tr>
 		</table>
 		 --%>
 	</form:form>
+
+	<jsp:include page="footer-menu.jsp" />
 
 </body>
 </html>

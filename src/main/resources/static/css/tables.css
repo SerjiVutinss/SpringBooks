@@ -1,8 +1,21 @@
 @charset "ISO-8859-1";
 
- /** Reference for table border - https://www.w3schools.com/css/css_table.asp **/
-
-table, th, td {
+/** Reference for table border - https://www.w3schools.com/css/css_table.asp **/
+.data-table {
 	border: 1px solid black;
 	padding: 2px;
+}
+
+.data-table th {
+	border: 1px solid black;
+	padding: 2px;
+}
+
+.data-table td {
+	border: 1px solid black;
+	padding: 2px;
+}
+
+.footer-menu {
+	margin-top: 20px;
 }

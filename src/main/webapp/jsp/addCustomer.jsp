@@ -7,8 +7,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add customer</title>
+<link href="css/tables.css" rel="stylesheet">
 </head>
 <body>
+
+	<h1>Add New Customer</h1>
 
 	<form:form modelAttribute="customer">
 		<table>
@@ -19,18 +22,18 @@
 
 			</tr>
 			<tr>
-				<td colspan="2"></td>
-			</tr>
-			<tr>
 				<td>Loan Period:</td>
 				<td><form:input path="loanPeriod"></form:input></td>
 				<td><form:errors path="loanPeriod"></form:errors></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="Add" /></td>
+				<td></td>
+				<td><input type="submit" value="Add" /></td>
 			</tr>
 		</table>
 	</form:form>
+
+	<jsp:include page="footer-menu.jsp" />
 
 </body>
 </html>

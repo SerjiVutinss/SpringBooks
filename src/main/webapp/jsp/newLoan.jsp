@@ -7,15 +7,19 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>New Loan</title>
+<link href="css/tables.css" rel="stylesheet">
 </head>
 <body>
 	<h1>New Loan</h1>
 	<form:form modelAttribute="loanModel">
 
-		<form:select path="customerId" items="${customerList}" />
-		<form:select path="bookId" items="${bookList}" />
-
-		<input type="submit" value="Add" />
+		<table>
+			<tr>
+				<td><form:select path="customerId" items="${customerList}" /></td>
+				<td><form:select path="bookId" items="${bookList}" /></td>
+				<td><input type="submit" value="Add" /></td>
+			</tr>
+		</table>
 
 		<%--
 		 <table>
@@ -39,6 +43,8 @@
 		--%>
 
 	</form:form>
+
+	<jsp:include page="footer-menu.jsp" />
 
 </body>
 </html>

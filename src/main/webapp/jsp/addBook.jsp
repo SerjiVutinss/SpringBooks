@@ -7,8 +7,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Book</title>
+<link href="css/tables.css" rel="stylesheet">
 </head>
 <body>
+
+	<h1>Add New Book</h1>
 
 	<form:form modelAttribute="book">
 		<table>
@@ -18,18 +21,18 @@
 				<td><form:errors path="title"></form:errors></td>
 			</tr>
 			<tr>
-				<td colspan="2"></td>
-			</tr>
-			<tr>
 				<td>Author:</td>
 				<td><form:input path="author"></form:input></td>
 				<td><form:errors path="author"></form:errors></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="Add" /></td>
+				<td></td>
+				<td><input type="submit" value="Add" /></td>
 			</tr>
 		</table>
 	</form:form>
+
+	<jsp:include page="footer-menu.jsp" />
 
 </body>
 </html>

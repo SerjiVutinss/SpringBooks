@@ -18,15 +18,12 @@
 				<td><form:errors path="customerId"></form:errors></td>
 			</tr>
 			<tr>
-				<td colspan="2"></td>
-			</tr>
-			<tr>
 				<td>BookID:</td>
 				<td><form:input path="bookId"></form:input></td>
 				<td><form:errors path="bookId"></form:errors></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="Add" /></td>
+				<td><input type="submit" value="Add" /></td>
 			</tr>
 		</table>
 	</form:form>
