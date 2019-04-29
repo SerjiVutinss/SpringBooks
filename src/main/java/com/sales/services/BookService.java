@@ -24,4 +24,8 @@ public class BookService {
 		bookRepo.save(b);
 	}
 
+	public Iterable<Book> getNotOnLoan() {
+		return bookRepo.getNotOnLoan();
+	}
+
 }

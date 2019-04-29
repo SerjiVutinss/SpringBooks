@@ -61,7 +61,7 @@ public class LoanController {
 
 		//// Books dropdown
 		// get all books from db
-		ArrayList<Book> books = (ArrayList<Book>) bookService.get();
+		ArrayList<Book> books = (ArrayList<Book>) bookService.getNotOnLoan();
 		// add books to a map
 		Map<Long, String> booksMap = new HashMap<Long, String>();
 		for (Book b : books) {
@@ -74,7 +74,7 @@ public class LoanController {
 		// create new custom AddLoanModel and add to model
 		AddLoanModel lm = new AddLoanModel();
 		m.addAttribute("loanModel", lm);
-		
+
 		return "newLoan";
 	}
 
@@ -102,7 +102,11 @@ public class LoanController {
 		}
 
 		// add to repo
-		loanService.add(l);
+		try {
+			loanService.add(l);
+		} catch (IllegalArgumentException e) {
+			return "redirect:noLoanSelected";
+		}
 
 		return "redirect:showLoans";
 	}
@@ -111,19 +115,20 @@ public class LoanController {
 	//// delete loan
 	@RequestMapping(value = "/deleteLoan", method = RequestMethod.GET)
 	public String deleteLoan(Model m) {
-		
+
 		// get all loans and create list
 		ArrayList<Loan> loans = (ArrayList<Loan>) loanService.get();
 		// create a map to hold all loans
 		Map<Long, String> loansMap = new HashMap<Long, String>();
 		// add all loans to map
 		String loanDescription;
-		for(Loan l: loans) {
-			loanDescription = l.getBook().getTitle() + " on loan to " + l.getCust().getcName() + " until " + l.getDueDate();
+		for (Loan l : loans) {
+			loanDescription = l.getBook().getTitle() + " on loan to " + l.getCust().getcName() + " until "
+					+ l.getDueDate();
 			loansMap.put(l.getLid(), loanDescription);
 		}
 		m.addAttribute("loansList", loansMap);
-		
+
 		Loan l = new Loan();
 		m.addAttribute("loan", l);
 		return "deleteLoan";
