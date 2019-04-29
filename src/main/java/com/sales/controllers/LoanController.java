@@ -46,50 +46,6 @@ public class LoanController {
 		return "newLoan";
 	}
 
-	@RequestMapping(value = "/deleteLoan", method = RequestMethod.GET)
-	public String deleteLoan(Model m) {
-		Loan l = new Loan();
-		m.addAttribute("loan", l);
-		return "deleteLoan";
-	}
-
-	@RequestMapping(value = "/deleteLoan", method = RequestMethod.POST)
-	public String deleteLoanPost(@ModelAttribute("loanModel") Loan l, BindingResult result) {
-		
-		Long loanID = l.getLid();
-		Loan loan = loanService.get(loanID);
-		loanService.delete(loan);
-		
-		if(result.hasErrors()) {
-			return "deleteLoan";
-		}
-		
-		return "redirect:showLoans";
-	}
-
-//	@RequestMapping(value = "/newLoan", method = RequestMethod.GET)
-//	public String addLoan(Model m) {
-//		Loan loan = new Loan();
-//		m.addAttribute("loan", loan);
-//		return "newLoan";
-//	}
-
-////	 TODO: try to get this method working instead of using the AddLoanModel method
-//	@RequestMapping(value = "/newLoan", method = RequestMethod.POST)
-//	public String addLoan(@Valid @ModelAttribute("loan") Loan loan, BindingResult result) {
-//
-//		if (result.hasErrors()) {
-//			return "newLoan";
-//		}
-//		// set the due date using the static helper method
-//		loan.setDueDate(DateUtils.addToCurrentDate(c.getLoanPeriod()));
-//
-//		// add to repo
-//		loanService.add(loan);
-//
-//		return "redirect:showLoans";
-//	}
-
 	@RequestMapping(value = "/newLoan", method = RequestMethod.POST)
 	public String addLoan(@Valid @ModelAttribute("loanModel") AddLoanModel lm, BindingResult result) {
 
@@ -118,5 +74,52 @@ public class LoanController {
 
 		return "redirect:showLoans";
 	}
+
+	@RequestMapping(value = "/deleteLoan", method = RequestMethod.GET)
+	public String deleteLoan(Model m) {
+		Loan l = new Loan();
+		m.addAttribute("loan", l);
+		return "deleteLoan";
+	}
+
+	@RequestMapping(value = "/deleteLoan", method = RequestMethod.POST)
+	public String deleteLoanPost(@ModelAttribute("loanModel") Loan l, BindingResult result) {
+
+		Long loanID = l.getLid();
+		Loan loan = loanService.get(loanID);
+		loanService.delete(loan);
+
+		if (result.hasErrors()) {
+			return "deleteLoan";
+		}
+
+		return "redirect:showLoans";
+	}
+
+//	@RequestMapping(value = "/newLoan", method = RequestMethod.GET)
+//	public String addLoan(Model m) {
+//		Loan loan = new Loan();
+//		m.addAttribute("loanModel", loan);
+//		return "newLoan";
+//	}
+//
+////	 TODO: try to get this method working instead of using the AddLoanModel method
+//	@RequestMapping(value = "/newLoan", method = RequestMethod.POST)
+//	public String addLoan(@Valid @ModelAttribute("loanModel") Loan lm, BindingResult result) {
+//
+//		
+//		if (result.hasErrors()) {
+//			return "newLoan";
+//		}
+//		Loan savedLoan = loanService.add(lm);
+//		System.out.println(savedLoan.getCust().getcName());
+//		// set the due date using the static helper method
+//		savedLoan.setDueDate(DateUtils.addToCurrentDate(savedLoan.getCust().getLoanPeriod()));
+//
+//		// add to repo
+//		loanService.add(savedLoan);
+//
+//		return "redirect:showLoans";
+//	}
 
 }

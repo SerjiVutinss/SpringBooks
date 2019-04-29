@@ -15,8 +15,8 @@ public class LoanService {
 		return loanRepo.findAll();
 	}
 
-	public void add(Loan l) {
-		loanRepo.save(l);
+	public Loan add(Loan l) {
+		return loanRepo.save(l);
 	}
 
 	public Loan get(Long id) {
@@ -26,5 +26,4 @@ public class LoanService {
 	public void delete(Loan l) {
 		loanRepo.delete(l);
 	}
-
 }
