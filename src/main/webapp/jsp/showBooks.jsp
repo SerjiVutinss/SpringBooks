@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Books List</title>
+<link href="css/tables.css" rel="stylesheet">
 </head>
 <body>
 

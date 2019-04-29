@@ -46,6 +46,27 @@ public class LoanController {
 		return "newLoan";
 	}
 
+	@RequestMapping(value = "/deleteLoan", method = RequestMethod.GET)
+	public String deleteLoan(Model m) {
+		Loan l = new Loan();
+		m.addAttribute("loan", l);
+		return "deleteLoan";
+	}
+
+	@RequestMapping(value = "/deleteLoan", method = RequestMethod.POST)
+	public String deleteLoanPost(@ModelAttribute("loanModel") Loan l, BindingResult result) {
+		
+		Long loanID = l.getLid();
+		Loan loan = loanService.get(loanID);
+		loanService.delete(loan);
+		
+		if(result.hasErrors()) {
+			return "deleteLoan";
+		}
+		
+		return "redirect:showLoans";
+	}
+
 //	@RequestMapping(value = "/newLoan", method = RequestMethod.GET)
 //	public String addLoan(Model m) {
 //		Loan loan = new Loan();
