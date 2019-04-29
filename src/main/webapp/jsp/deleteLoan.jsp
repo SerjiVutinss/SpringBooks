@@ -6,11 +6,18 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>New Loan</title>
+<title>Delete Loan</title>
 </head>
 <body>
 
+	<h1>Delete Loan</h1>
+
 	<form:form modelAttribute="loan">
+		<form:select path="lid" items="${loansList}" />
+
+		<input type="submit" value="Delete" />
+
+		<%--
 		<table>
 			<tr>
 				<td>LoanID:</td>
@@ -25,6 +32,7 @@
 				<td colspan="2"><input type="submit" value="Delete" /></td>
 			</tr>
 		</table>
+		 --%>
 	</form:form>
 
 </body>
